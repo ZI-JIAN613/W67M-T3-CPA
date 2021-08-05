@@ -61,7 +61,7 @@ public class SubjectList {
 							System.out.println(String.format("Subject id %d was deleted successfully.",
 									deleteSID));
 						} else {
-							System.out.println("Something went wrong, Academic Cluster was not deleted.");
+							System.out.println("Something went wrong, Subject was not deleted.");
 						}
 					}
 
@@ -87,14 +87,14 @@ public class SubjectList {
 		return output;
 	}
 	
-	public static String acRetrieveAll(ArrayList<Subject> acList) {
+	public static String SRetrieveAll(ArrayList<Subject> SList) {
 
 		// Complete code here
 		
 		String output = "";
 		
-		for (int i = 0; i < acList.size(); i++) {
-			Subject n = acList.get(i);
+		for (int i = 0; i < SList.size(); i++) {
+			Subject n = SList.get(i);
 			
 			output += String.format("%-3d %-30s %-80s %-20d\n", n.getSubjectId(),n.getSubjectName(), n.getSubDescription(), n.getSubCredit());
 		}
