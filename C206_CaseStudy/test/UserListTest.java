@@ -25,7 +25,6 @@ public class UserListTest {
 
 		UList= new ArrayList<User>();
 	}
-	
 	@Test
 	public void testRetrieveAllUser() {
 		UList=new ArrayList<User>();
@@ -40,6 +39,7 @@ public class UserListTest {
 	    UserList.URetrieveAll(UList);
 	    assertSame("Test that all users in the list are display",UList.size(),2);
 	  }
+	
 	@Test
 	public void testAddUser() {
 		// Item list is not null, so that can add a new item
