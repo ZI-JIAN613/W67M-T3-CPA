@@ -2,10 +2,8 @@ import java.util.ArrayList;
 
 public class CareerInfoMain {
 
-	public static void main(String[] args) {
+	public static void CareerInfo() {
 		// TODO Auto-generated method stub
-
-		int option = 0;
 		CareerInfo career1 = new CareerInfo(1, "Web Designer", "Information Technology", 1);
 		CareerInfo career2 = new CareerInfo(2, "Software Tester", "Information Technology", 2);
 		CareerInfo career3 = new CareerInfo(3, "Game Programmer", "Information Technology", 3);
@@ -13,7 +11,11 @@ public class CareerInfoMain {
 		careerList.add(career1);
 		careerList.add(career2);
 		careerList.add(career3);
-		while (option != 7) {
+		
+
+		int option = -1;
+
+		while (option != 5) {
 			CareerInfoMain.staffMenu();
 			option = Helper.readInt("Enter choice > ");
 			if (option == 1) {
@@ -92,6 +94,7 @@ public class CareerInfoMain {
 		System.out.println("2. Add a new career information");
 		System.out.println("3. Update a career information");
 		System.out.println("4. Remove a career information");
+		System.out.println("5. Quit");
 
 	}
 

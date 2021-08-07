@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class AcademicClusterList {
 
-	public static void main(String[] args) {
+	public static void AcademicCluster() {
 		// TODO Auto-generated method stub
 		
 		AcademicCluster ac1 = new AcademicCluster(1,"Engineering","Aerospace Engineering, Aviation Management");

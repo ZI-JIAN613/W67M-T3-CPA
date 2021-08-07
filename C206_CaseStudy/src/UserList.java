@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class UserList {
 
-	public static void main(String[] args) {
+	public static void User() {
 		// TODO Auto-generated method stub
 		User U1 = new User(20019018, "Robin", "Student", "20019018@myrp.edu.sg", "123456");
 		User U2 = new User(20007386, "Aayush", "Student", "20007386@myrp.edu.sg", "234567");

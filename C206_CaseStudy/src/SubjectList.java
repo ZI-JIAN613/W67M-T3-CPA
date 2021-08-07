@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class SubjectList {
 
-	public static void main(String[] args) {
+	public static void Subject() {
 		// TODO Auto-generated method stub
 
 		Subject S1 = new Subject(1, "Engineering", "A multidisciplinary subject, combining natural and experimental sciences", 4);
