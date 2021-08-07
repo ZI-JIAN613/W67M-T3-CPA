@@ -25,22 +25,7 @@ public class UserListTest {
 
 		UList= new ArrayList<User>();
 	}
-	@Test
-	public void testAddUser() {
-		// Item list is not null, so that can add a new item
-		assertNotNull("Test if there is valid User arraylist to add to", UList);
-		
-		//Given an empty list, after adding 1 item, the size of the list is 1
-		UserList.addS(UList, U1);		
-		assertEquals("Test if that Userlist size is 1?", 1, UList.size());
-		
-		//The item just added is as same as the first item of the list
-		assertSame("Test that User is added same as 1st item of the list?", U1, UList.get(0));
-		
-		//Add another item. test The size of the list is 2?
-		UserList.addS(UList, U2);
-		assertEquals("Test that User arraylist size is 2?", 2, UList.size());
-	}
+	
 	@Test
 	public void testRetrieveAllUser() {
 		UList=new ArrayList<User>();
@@ -56,6 +41,25 @@ public class UserListTest {
 	    assertSame("Test that all users in the list are display",UList.size(),2);
 	  }
 	@Test
+	public void testAddUser() {
+		// Item list is not null, so that can add a new item
+		assertNotNull("Test if there is valid User arraylist to add to", UList);
+		
+		//Given an empty list, after adding 1 item, the size of the list is 1
+		UserList.addS(UList, U1);		
+		assertEquals("Test if that Userlist size is 1?", 1, UList.size());
+		
+		//The item just added is as same as the first item of the list
+		assertSame("Test that User is added same as 1st item of the list?", U1, UList.get(0));
+		
+		//Add another item. test The size of the list is 2?
+		UserList.addS(UList, U2);
+		assertEquals("Test that User arraylist size is 2?", 2, UList.size());
+		
+		//Test that the added item is not a duplicate of the first user
+		assertNotEquals("Test there is not duplicate",UList.get(0),UList.get(1));
+	}
+	@Test
 	public void testDeleteUser() {
 		UserList.addS(UList, U1);
 		UserList.addS(UList, U2);
@@ -66,9 +70,9 @@ public class UserListTest {
 		UserList.removeU(UList, 20019018);		
 		assertEquals("Test if that Userlist size is 1?", 1, UList.size());
 		
-		//Delete another user. test The size of the list is 0?
-		UserList.removeU(UList, 20007386);
-		assertEquals("Test that User arraylist size is 2?", 0, UList.size());
+		 //Ensure the user has been deleted and not left only 1 user that have display
+	    UserList.URetrieveAll(UList);
+	    assertSame("Test that the users has been deleted in the list are display",UList.size(),1);
 	}
 
 }
