@@ -41,6 +41,10 @@ public class C206_CaseStudy {
 		SList.add(S2);
 		SList.add(S3);
 		
+		ArrayList<PrerequisiteInfo> priList = new ArrayList<PrerequisiteInfo>();//Neo Wen Zong
+		
+		priList.add(new PrerequisiteInfo("Arts, Audio/Video Technology, and Communications"));//Neo Wen Zong
+		
 		int option = -1;
 		while(option != 6)
 		{
@@ -649,5 +653,108 @@ public static String UListToString(ArrayList<User> UList) {
 			}
 			return toDelete;
 		}
+
+		public static void prerequisiteInfoMenu(ArrayList<PrerequisiteInfo> priList, ArrayList<Subject> subjectList) { //Neo Wen Zong
+			
+			int opt = 0;
+
+			while (opt != 6) {
+
+				System.out.println("-------------------------------PrerequisiteInfoMenu-------------------------------");
+			    System.out.println("1. View all Prerequisite Info");
+			    System.out.println("2. Add a Prerequisite");
+			    System.out.println("3. Delete a Prequisite Info");
+			    System.out.println("4. Update a Pathway Info");
+
+			    opt = Helper.readInt("Enter an option: ");
+	
+			    if (opt == 1) {
+			    	viewAllPrerequisiteInfo(priList, subjectList);
+			    }
+	
+			    else if (opt == 2) {
+			    	addPrerequisite(priList);
+			    }
+	
+			    else if (opt == 3) {
+			    	deleteAPrerequisiteInfo(priList);
+			    }
+			    
+			    else if (opt == 4) {
+			    	updatePathwayInfo(priList);
+			    }
+			    
+			    else if (opt == 6) {
+			    	System.out.println("Bye");
+			    }
+
+		    	else {
+		    		System.out.println("Invalid option");
+		    	}
+			}
+
+		}
+
+		public static void addPrerequisite(ArrayList<PrerequisiteInfo> priList) {
+		    String job = Helper.readString("Enter a academic cluster: ");
+		    int count = 0;
+		    
+		    for (int i = 0; i < priList.size(); i++) {
+		    	if (job.equalsIgnoreCase(priList.get(i).getPrerequisiteInfoName().toLowerCase())) {//Neo Wen Zong
+		    		count ++;
+		    	}
+		    }
+		    
+		    if (count >= 1) {
+		    	System.out.println("Academic cluster already exist.");
+		    } else {
+		    	priList.add(new PrerequisiteInfo(job));
+
+		    	System.out.println("Prerequisite added");
+		    }
+		}
+
+		public static void viewAllPrerequisiteInfo(ArrayList<PrerequisiteInfo> priList, ArrayList<Subject> subjectList) {//Neo Wen Zong
+		    String out = String.format("%-3s, %-10s %s", "No.", "Subject", "Academic cluster");
+
+		    for (int i = 0; i < priList.size(); i ++) {
+		        out += String.format("%-3s, %-10s %s", i + 1, subjectList.get(0), priList.get(i).getPrerequisiteInfoName());
+		    }
+		    System.out.println(out);
+		}
+
+		public static void deleteAPrerequisiteInfo(ArrayList<PrerequisiteInfo> priList) {//Neo Wen Zong
+			String job = Helper.readString("Enter a academic cluster: ");
+			int count = 0;
+			
+			for (int i = 0; i < priList.size(); i ++) {
+				count ++;
+				if (job.equalsIgnoreCase(priList.get(i).getPrerequisiteInfoName().toLowerCase())) {
+					priList.remove(i);
+					System.out.println("Successfully deleted");
+				} else if (count == priList.size()) {
+					System.out.println("No such academic cluster");
+				}
+			}
+		}
+		
+		public static void updatePathwayInfo(ArrayList<PrerequisiteInfo> priList) { //Neo Wen Zong
+			String job = Helper.readString("Enter a academic cluster: ");
+			int count = 0;
+			
+			for (int i = 0; i < priList.size(); i ++) {
+				count ++;
+				if (job.equalsIgnoreCase(priList.get(i).getPrerequisiteInfoName().toLowerCase())) {
+					priList.get(i).setPrerequisiteInfoName(job);
+					System.out.println("Successfully Updated");
+				} else if (count == priList.size()) {
+					System.out.println("No such academic cluster");
+				}
+			}
+		}
+		
+		
+		
+		
 }
 
