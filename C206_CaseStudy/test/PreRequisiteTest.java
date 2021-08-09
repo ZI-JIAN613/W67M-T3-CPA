@@ -18,13 +18,7 @@ public class PreRequisiteTest {
 		pri2 = new PrerequisiteInfo("Architecture and Construction");
 		pri3 = new PrerequisiteInfo("Arts, Audio/Video Technology, and Communications");
 		
-		//priList = new ArrayList<PrerequisiteInfo>();
-	}
-
-	@After
-	public void tearDown() throws Exception {
-		pri1 = null;
-		priList = null;
+		priList = new ArrayList<PrerequisiteInfo>();
 	}
 
 	@Test
@@ -34,11 +28,11 @@ public class PreRequisiteTest {
 		assertSame(pri1, priList.get(0));
 		assertEquals(1, priList.size());
 	}
-	
+
 	@Test
 	public void testViewAllPrerequisiteInfo() {
 		assertNotNull(priList);
-		assertEquals(1, priList.size());
+		assertEquals(0, priList.size());
 		priList.add(pri1);
 		assertSame(pri1, priList.get(0));
 	}
@@ -55,5 +49,16 @@ public class PreRequisiteTest {
 	@Test
 	public void testUpdatePathwayInfo() {
 		assertNotNull(priList);
+		priList.add(pri1);
+		pri1.setPrerequisiteInfoName("abc");
+		assertSame("abc", pri1.getPrerequisiteInfoName());
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+		pri1 = null;
+		pri2 = null;
+		pri3 = null;
+		priList = null;
 	}
 }
